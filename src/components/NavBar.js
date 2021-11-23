@@ -12,12 +12,18 @@ export default class NavBar extends Component {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/Page2">Page2</Nav.Link>
-                            <Nav.Link as={Link} to="/Page3">Page3</Nav.Link>
-                            <Nav.Link as={Link} to="/example">Example</Nav.Link>
-                            <Nav.Link as={Link} to="/Pokemon">Pokemon</Nav.Link>
-                            
+                            {this.props.token ?
+                            <>
+                                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/shop">Shop</Nav.Link>
+                                <Nav.Link as={Link} to="/page2">Page2</Nav.Link>
+                                <Nav.Link as={Link} to="/page3">Page3</Nav.Link>
+                                <Nav.Link as={Link} to="/example">Example</Nav.Link>
+                                <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+                            </>
+                            :
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                            }
                         </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -25,3 +31,5 @@ export default class NavBar extends Component {
         )
     }
 }
+
+
